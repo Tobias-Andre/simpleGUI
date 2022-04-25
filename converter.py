@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 
-sg.theme('reds')
+sg.theme('dark')
 
 layout = [
     [
