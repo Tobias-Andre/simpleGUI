@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
 
+sg.theme('reds')
+
 layout = [
     [
         sg.Input(key = '-INPUT-'),
