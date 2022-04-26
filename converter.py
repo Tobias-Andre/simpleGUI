@@ -77,7 +77,7 @@ while True:
 
             window['-OUTPUT-'].update(output_string)
         else:
-            window['-OUTPUT-'].update('Please insert number!')
+            window['-OUTPUT-'].update('Please insert a number!')
 
     
 window.close()
