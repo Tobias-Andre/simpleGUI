@@ -6,7 +6,7 @@ def create_window(theme):
     button_size = (4,2)
     layout = [
         [sg.Text(
-            'Output', 
+            '', 
             font = 'Franklin 30', 
             justification = 'right', 
             expand_x = True, 
@@ -56,7 +56,7 @@ while True:
         full_operation = []
 
     if event == 'Clear':
-        window['-TEXT-'].update('Output')
+        window['-TEXT-'].update('')
         current_num = []
         full_operation = []
 
