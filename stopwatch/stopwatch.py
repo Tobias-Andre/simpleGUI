@@ -6,7 +6,7 @@ def create_window():
     layout = [
         [sg.Push(), sg.Text('X', font = 'Young 14', text_color = 'red', pad = 0, enable_events = True, key = '-CLOSE-')],
         [sg.VPush()],
-        [sg.Text('time', font = 'Young 50', key = '-TIME-')],
+        [sg.Text('', font = 'Young 50', key = '-TIME-')],
         [
             sg.Button('Start', button_color = ('#ffffff', '#ff0000'), border_width = '0', key = '-STARTSTOP-'),
             sg.Button('Lap', button_color = ('#ffffff', '#ff0000'), border_width = '0', key = '-LAP-', visible = False),
@@ -22,9 +22,9 @@ def create_window():
         element_justification = 'center')
 
 window = create_window()
-
 start_time = 0
 active = False
+lap_amount = 1
 
 while True:
     event, values = window.read(timeout = 10)
@@ -44,6 +44,7 @@ while True:
                 window.close()
                 window = create_window()
                 start_time = 0
+                lap_amount = 1
                 
             # from start to active
             else:
@@ -58,6 +59,7 @@ while True:
         window['-TIME-']. update(elapsed_time)
         
     if event == '-LAP-':
-        window.extend_layout(window['-LAPS-'], [[sg.Text('1'), sg.VSeparator(), sg.Text('time')]])
+        window.extend_layout(window['-LAPS-'], [[sg.Text(lap_amount), sg.VSeparator(), sg.Text(elapsed_time)]])
+        lap_amount += 1
     
 window.close()
